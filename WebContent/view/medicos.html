@@ -1,0 +1,60 @@
+<div>
+<h1>Cadastro de Médicos</h1>
+{{medicos}}
+  <form name="medicoForm" method="POST">
+	  <div class="form-group">
+	    <label for="Nome">Nome:</label>
+	    <input type="text" class="form-control" id="nome" ng-model="medico.nome" ng-required="true" placeholder="Nome">
+	  </div>
+	  <div class="form-group">
+	    <label for="CRM">CRM:</label>
+	    <input type="text" class="form-control" id="crm" ng-model="medico.crm" ng-required="true" ng-minlength="5" placeholder="CRM">
+	  </div>
+	  <div class="form-group">
+	    <label for="Idade">Idade:</label>
+	    <input type="number" class="form-control" id="idade" ng-model="medico.idade" ng-required="true" min="1" max="120">
+	  </div>
+	  
+	  <div ng-show="medicoForm.nome.$dirty" ng-messages="medicoForm.nome.$error">
+		<div ng-message="required" class="alert alert-danger">
+			Por favor, preencha o campo nome!
+		</div>
+	</div>
+	
+	<div ng-show="medicoForm.crm.$dirty" ng-messages="medicoForm.crm.$error">
+		<div ng-message="required" class="alert alert-danger">
+			Por favor, preencha o campo CRM!
+		</div>
+		<div ng-message="minlength" class="alert alert-danger">
+			O campo CRM deve ter no mínimo 5 caracteres.
+		</div>
+	</div>
+	
+	<div ng-show="medicoForm.idade.$error.required && medicoForm.idade.$dirty" class="alert alert-danger">
+		Por favor, preencha o campo idade!
+	</div>
+	  <button class="btn btn-primary btn-block" ng-click="adicionarMedico(medico)" ng-disabled="medicoForm.$invalid">Adicionar Medico</button>
+  </form>
+  <div>
+  	<table class="table">
+	  <thead>
+	    <tr>
+	      <th scope="col">#</th>
+	      <th scope="col">Nome</th>
+	      <th scope="col">CRM</th>
+	      <th scope="col">Idade</th>
+	      <th scope="col"></th>
+	    </tr>
+	  </thead>
+	  <tbody ng-repeat="medico in medicos">
+	    <tr>
+	      <th scope="row">{{medico.Id}}</th>
+	      <td>{{medico.Nome}}</td>
+	      <td>{{medico.CRM}}</td>
+	      <td>{{medico.Idade}}</td>
+	      <td>Apagar</td>
+	    </tr>
+	  </tbody>
+	</table>
+  </div>
+</div>
