@@ -49,10 +49,10 @@
 	  <tbody ng-repeat="medico in medicos">
 	    <tr>
 	      <th scope="row">{{medico.Id}}</th>
-	      <td>{{medico.Nome}}</td>
-	      <td>{{medico.CRM}}</td>
-	      <td>{{medico.Idade}}</td>
-	      <td>Apagar</td>
+	      <td>{{medico.nome}}</td>
+	      <td>{{medico.crm}}</td>
+	      <td>{{medico.idade}}</td>
+	      <td><a href="" ng-click="apagar(medico)">Apagar</a></td>
 	    </tr>
 	  </tbody>
 	</table>
