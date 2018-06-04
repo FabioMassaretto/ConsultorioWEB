@@ -1,0 +1,17 @@
+<div>
+	<h1>{{title}}</h1>
+	<form id="consultorioForm" method="POST">
+		<div>
+			<label for="numeroConsultorio">Número do Consultorio:</label>
+			<input type="number" id="numeroConsultorio" class="form-control" ng-model="consultorio.Numero" ng-required="true" placeholder="Número do Consultório"/>
+			<div ng-show="consultorioForm.numeroConsultorio.$dirty"
+				ng-messages="consultorioForm.numeroConsultorio.$error">
+				<div ng-message="required" class="alert alert-danger">Por
+					favor, preencha o campo número do consultório!</div>
+			</div>
+			<button class="btn btn-primary btn-block" ng-click="adicionarConsultorio(consultorio)" ng-disabled="numeroConsultorio.$invalid">
+				Adicionar Consultório
+			</button>
+		</div>
+	</form>
+</div>
